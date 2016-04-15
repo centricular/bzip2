@@ -82,12 +82,12 @@ typedef
 #      undef small
 #   endif
 #   ifdef BZ_EXPORT
-#   define BZ_API(func) WINAPI func
-#   define BZ_EXTERN extern
+#   define BZ_API(func) func
+#   define BZ_EXTERN __declspec(dllexport) extern
 #   else
    /* import windows dll dynamically */
-#   define BZ_API(func) (WINAPI * func)
-#   define BZ_EXTERN
+#   define BZ_API(func) ( * func)
+#   define BZ_EXTERN __declspec(dllimport) extern
 #   endif
 #else
 #   define BZ_API(func) func
