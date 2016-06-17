@@ -11,7 +11,7 @@ bzip2_sources = [
 ]
 
 libversion = meson.project_version()
-soversion = '1.0'
+soversion = '1'
 
 bz2_c_args = ['-D_FILE_OFFSET_BITS=64']
 
