@@ -76,11 +76,6 @@ typedef
 #endif
 
 #ifdef _WIN32
-#   include <windows.h>
-#   ifdef small
-      /* windows.h define small to char */
-#      undef small
-#   endif
 #   ifdef BZ_EXPORT
 #   define BZ_API(func) func
 #   define BZ_EXTERN __declspec(dllexport) extern
