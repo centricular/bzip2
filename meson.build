@@ -19,6 +19,9 @@ cc = meson.get_compiler('c')
 if cc.get_id() == 'gcc' or cc.get_id() == 'clang'
   # bzip2.c:557: warning: variable nread set but not used
   bz2_c_args += ['-Wno-unused-but-set-variable']
+elif cc.get_id() == 'msvc'
+  # Ignore C4996 about "insecure functions"
+  bz2_c_args += ['/wd4996']
 endif
 
 bz2_incs = include_directories('.')
