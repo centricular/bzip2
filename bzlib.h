@@ -75,15 +75,14 @@ typedef
 #include <stdio.h>
 #endif
 
-/* Define BZ_STATIC_COMPILATION if linking to libbz2 statically */
-#if defined(_WIN32) && !defined(BZ_STATIC_COMPILATION)
+#if defined(_WIN32)
 #   ifdef BZ_EXPORT
 #   define BZ_API(func) func
-#   define BZ_EXTERN __declspec(dllexport) extern
+#   define BZ_EXTERN extern
 #   else
    /* import windows dll dynamically */
 #   define BZ_API(func) ( * func)
-#   define BZ_EXTERN __declspec(dllimport) extern
+#   define BZ_EXTERN
 #   endif
 #else
 #   define BZ_API(func) func
