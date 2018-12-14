@@ -36,6 +36,7 @@ libbz2 = library('bz2', bzip2_sources,
   include_directories : bz2_incs,
   install : true,
   vs_module_defs : 'libbz2.def',
+  darwin_versions : ['1', meson.project_version()],
   kwargs : libkwargs,
 )
 
